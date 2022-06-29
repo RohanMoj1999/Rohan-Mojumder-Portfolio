@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+    body{
+        width: 100vw;
+        height: 100vh;
+    }
+
+    @keyframes animate{
+        0%{
+            background-position: 0 0;
+        }
+        25%{
+            background-position: 1000px 0;
+        }
+        50%{
+            background-position: 0 -1000px;
+        }
+        75%{
+            background-position: -1000px 0;
+        }
+        100%{
+            background-position: 0 1000px;
+        }
+    }
+    .clockBackground{
+        position: relative;
+        top: 20%;
+        left: 25%;
+        width: 50vw;
+        height: 50vh;
+        background: linear-gradient(45deg, #e6fb04,#fb8804,#fb4a04,#fb0404,#fb04a9,#b504fb,#3a04fb,#0477fb,#04b5fb,#04fbe6,#04fb73,#04fb25,#a5fb04);
+        animation-name: animate;
+        animation-duration: 10s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        filter: blur(6px);
+        opacity: 5;
+    }
+    .clock{
+        position: absolute;
+        top: 21%;
+        left: 26%;
+        width: 48vw;
+        height: 48vh;
+        background-color: white;
+        display: grid;
+        place-content: center;
+        font-size: 6vw;
+        border-radius: 5px;
+    }
+
+    #stopWatchButton{
+        position: absolute;
+        bottom: 10%;
+        right: 41%;
+        left: 41%;
+        padding: 10px 0;
+        border: 2px solid aqua;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 2vw;
+    }
+    #stopWatchButton:hover{
+        border: 2px solid rgb(0, 175, 175);
+    }
+    #stopWatchButton:active{
+        background-color: rgb(0, 175, 175);
+        color: white;
+    }
+
+    #background{
+        border: 1px solid grey;
+        width: 50vw;
+        height: 50vh;
+        display: grid;
+        place-content: center;
+    }
+    #background p{
+        color: white;
+        font-size: 7vw;
+    }
+
+    #backgroundStopWatch{
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        background-color: white;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .stopWatch{
+        font-size: 7vw;
+    }
+
+    .buttonSet button{
+        margin: 10px 10px ;
+        padding: 5px 5px;
+        border: 2px solid rgb(0, 175, 175);
+        border-radius: 5px;
+        cursor: pointer;
+        background-color: white;
+    }
+    .buttonSet button:hover{
+        border: 2px solid rgb(0, 175, 175);
+        border-radius: 5px;
+    }
+    .buttonSet button:active{
+        background-color: rgb(0, 175, 175);
+        color: white;
+    }
+
+    #clock2{
+        border: 1px solid black;
+        padding: 3px 3px ;
+        border-radius: 5px;
+        position: absolute;
+        top: 10%;
+        left: 70%;
+        cursor: pointer;
+    }
+
+    @media screen and (min-width:600px) {
+        .buttonSet button{
+            margin: 20px 20px ;
+            padding: 15px 15px;
+            border: 2px solid rgb(0, 175, 175);
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: white;
+        }
+    }
+</style>
+<body>
+    <div class="clockBackground"></div>
+    <div class="clock">
+        <p id="clock"></p>
+    </div>
+    <button id="stopWatchButton" onclick="stopWatchScreen()">STOP-WATCH</button>
+
+    <div class="stopWatchWindow">
+        <div id="backgroundStopWatch">
+            <p id="instructions"></p>
+            <div class="flex-child" id="background">
+                <div class="stopWatch" id="stopWatch">00:00:00</div>
+            </div>
+            <div class="buttonSet">
+                <button onclick="start()">Start</button>
+                <button onclick="pause()">Pause</button>
+                <button onclick="reset()">Reset</button>
+            </div>
+            <p id="clock2" onclick="clockScreen()"></p>
+        </div>
+    </div>
+
+    <script>
+        setInterval(() => {
+            document.getElementById('clock').innerHTML = new Date().toLocaleTimeString();
+        },1000);
+        setInterval(() => {
+            document.getElementById('clock2').innerHTML = new Date().toLocaleTimeString();
+        },1000);
+
+        function stopWatchScreen() {
+            document.getElementById('backgroundStopWatch').style.display = 'flex';
+        }
+        function clockScreen(){
+            document.getElementById('backgroundStopWatch').style.display = 'none';
+        }
+
+        let time = null;
+
+        function start(){
+            let [seconds, minutes, hours] = [0, 0, 0];
+            const updateCounter = () => {
+                seconds++;
+                if (seconds == 60) {
+                    seconds = 0;
+                    minutes++;
+                    if (minutes == 60) {
+                        minutes = 0;
+                        hours++;
+                    }
+                }
+
+                // adding 1 zero before hours, minutes, seconds when they are of single digit, and two zero when millisecond is of double digit
+                let h = hours < 10 ? "0" + hours : hours;
+                let m = minutes < 10 ? "0" + minutes : minutes;
+                let s = seconds < 10 ? "0" + seconds : seconds;
+
+                document.getElementById('stopWatch').innerHTML = `${h} : ${m} : ${s}`;
+            }
+            document.getElementById('instructions').innerHTML = 'To RESET, first pause the timer';
+            time = setInterval(updateCounter, 1000);
+        }
+
+        function reset(){
+            document.getElementById('stopWatch').innerHTML = '00:00:00';
+        }
+
+        function pause(){
+            document.getElementById('instructions').innerHTML = '';
+            clearInterval(time);
+        }
+    </script>
+</body>
+</html>

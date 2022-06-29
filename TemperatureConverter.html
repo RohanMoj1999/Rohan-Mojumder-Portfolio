@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body{
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(255, 166, 0, 0.562);
+        display: grid;
+        place-items: center;
+    }
+    form{
+        text-align: center;
+        background-color: white;
+        width: 50vw;
+        padding: 20px 10px;
+        box-shadow: 0px 10px 20px rgb(58, 58, 58);
+    }
+    button{
+        margin-top: 20px;
+        padding: 7px 10px;
+        border: none;
+        background-color: blueviolet;
+        color: white;
+        border-radius: 5px;
+        font-weight: 700;
+    }
+    button:hover{
+        border: 1px solid rgb(0, 255, 98);
+        background-color: white;
+        color: blueviolet;
+    }
+</style>
+<body>
+    <form id="tempCalc" onsubmit="calculateTemp(); return false">
+
+        <!-- return false means the form will not be submitted automatically until and unless you press the submit button -->
+
+        <label style="font-weight: bold;">Enter the temperature you want to convert.</label>
+        <br />
+        <br />
+        <input type="number" id="temp_input" style="width: 20vw;">
+        <select name="temp_type" id="temp_type">
+            <option value="Cel">Celcius</option>
+            <option value="Fah">Fahren Heit</option>
+        </select>
+        <br />
+        <button type="submit">CONVERT</button><br/>
+        <span id="resultContainer" style="color: black; font-weight:bold;"></span>
+    </form>
+
+    <script>
+        const calculateTemp = () => {
+            // fetching the number entered in the textfield
+            const numberTemp = document.getElementById('temp_input').value;
+            console.log(numberTemp);
+
+
+            // fetching type of temperature from select box
+            const tempType = document.getElementById('temp_type');
+
+
+            // 'selectedIndex' is used to get the index of the selected options from dropdown menu
+            const valueTemp = temp_type.options[tempType.selectedIndex].value;
+            console.log(valueTemp);
+
+
+            // celsius to fahren heit
+            const celToFah = (fah) => {
+                let fahrenHeit = Math.round((fah*9/5) + 32);
+                console.log(fahrenHeit)
+                return fahrenHeit;
+            }
+
+            // fahren heit to celsius
+            const FahToCel = (cel) => {
+                let celVal = Math.round(((cel-32)/9)*5);
+                return celVal;
+            }
+
+            let result;
+
+            // fahrenHeit to celsius
+            if (valueTemp == 'Cel'){
+                //  calculating result
+                result = celToFah(numberTemp);
+                
+                //  setting the result in the span box
+                document.getElementById('resultContainer').innerHTML = `${result} FahrenHeit`;
+            }
+            // celsius to fahrenHeit
+            else {
+                result = FahToCel(numberTemp);
+
+                document.getElementById('resultContainer').innerHTML = `${result} Celsius`;
+            }
+        }
+    </script>
+</body>
+</html>

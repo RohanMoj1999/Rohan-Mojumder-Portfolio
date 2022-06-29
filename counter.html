@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    @keyframes changecolor{
+        0%{
+            background-color: red;
+        }
+        14%{
+            background-color: yellow;
+        }
+        28%{
+            background-color: pink;
+        }
+        56%{
+            background-color: blue;    
+        }
+        70%{
+            background-color: lime;
+        }
+        84%{
+            background-color: aqua;
+        }
+        100%{
+            background-color: red;
+        }
+    }
+
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    body{
+        width: 100vw;
+        height: 100vh;
+        display: grid;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        place-content: center;
+        animation-name: changecolor;
+        animation-duration: 5s;
+        animation-iteration-count: infinite;
+    }
+    .container{
+        border-radius: 10px;
+        padding: 10px 10px;
+        text-align: center;
+        background-color: white;
+        box-shadow: 0px 7px 10px rgb(37, 37, 37);
+    }
+    .text p{
+        font-size: 3em;
+    }
+    .options{
+        display: flex;
+        justify-content: center;
+    }
+    button{
+        margin: 0px 10px;
+        padding: 5px 10px;
+        border: 2px solid black;
+        border-radius: 5px;
+        font-weight: 900;
+    }
+    button:hover{
+        color: white;
+        background-color: black;
+    }
+</style>
+<body>
+    <div class="container">
+        <div class="text">
+            <h1>Counter</h1>
+            <p id="num"></p>
+            <div class="options">
+                <button onclick="decrease()">DECREASE</button>
+                <button onclick="reset()">RESET</button>
+                <button onclick="increase()">INCREASE</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        const temp = document.getElementById('num');
+        var i = temp.innerHTML = 0;
+        function decrease() {
+            if (i == 0){
+                temp.innerHTML = i;
+            }
+            else{
+                i--;
+                temp.innerHTML = i;
+            }
+        }
+        function increase() {
+            i++;
+            temp.innerHTML = i;
+        }
+        function reset() {
+            i = 0;
+            temp.innerHTML = i;
+        }
+    </script>
+</body>
+</html>
