@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang='en'>
+
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>Bootstrap demo</title>
+
+    <!-- Bootstrap CSS -->
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css' rel='stylesheet'
+        integrity='sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx' crossorigin='anonymous'>
+
+    <!-- bootstrap icon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+
+    <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/3a073a0f76.js" crossorigin="anonymous"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <!-- Bootstrap JAVASCRIPT -->
+    <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js'
+        integrity='sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa'
+        crossorigin='anonymous'></script>
+
+    <div class="main container-fluid">
+        <div class="row justify-content-evenly align-items-center" style="height: 90vh;">
+            <!-- glass background -->
+            <div class="col-11 bg-light bg-opacity-25 rounded">
+                <div class="row">
+                    <!-- sidebar -->
+                    <div class="sideBar col-2 bg-light bg-opacity-25">
+                        <h2 class="text-white"><i class="bi bi-calculator"></i>&nbsp;My Calc</h2>
+                        <div class="sideBar-list">
+                            <h4>Calculator</h4>
+                            <h5><i class="fa-solid fa-calculator"></i> Standard</h5>
+                            <h5><i class="fa-solid fa-atom"></i> Scientific</h5>
+                            <h5><i class="fa-solid fa-chart-pie"></i> Graphing</h5>
+                            <h5><i class="fa-solid fa-code"></i> Programmer</h5>
+                            <h5><i class="fa-solid fa-calendar-days"></i> Date Calculation</h5>
+                        </div>
+                        <div class="sideBar-list">
+                            <h4>Converter</h4>
+                            <h5>Currency</h5>
+                            <h5>Area</h5>
+                            <h5>Temperature</h5>
+                            <h5>Energy</h5>
+                            <h5>Time</h5>
+                            <h5><i class="bi bi-info-circle-fill"></i> About</h5>
+                        </div>
+                    </div>
+
+                    <!-- calculator field -->
+                    <div class="col-10">
+                        <div id="calculator">
+                            <div>
+                                <h2 class="text-white display-6"><i class="fa-solid fa-calculator"></i> Standard
+                                    Calculator</h2>
+                            </div>
+                            <div id="calcMainSection" class="rounded-top">
+                                <div id="displayScreen"></div>
+
+                                <!-- 1st row -->
+                                <div class="button" onclick="square()"><b>x<sup>2</sup></b></div>
+                                <div class="button" onclick="toPower('^')"><b>x<sup>n</sup></b></div>
+                                <div class="button" onclick="clearScreen()"><i class="fa-solid fa-c" style="color:#00ff33;"></i></div>
+                                <div class="button" onclick="deleteChar()"><i class="fa-solid fa-delete-left" style="color:red;"></i></div>
+
+                                <!-- 2nd row -->
+                                <div class="button" onclick="display('')"><b>(</b></div>
+                                <div class="button"><b>)</b></div>
+                                <div class="button" onclick="display('%')"><i class="fa-solid fa-percent"></i></div>
+                                <div class="button" onclick="display('/')"><i class="fa-solid fa-divide"></i></i></div>
+
+                                <!-- 3rd row -->
+                                <div class="numbutton" onclick="display('1')"><i class="fa-solid fa-1"></i></div>
+                                <div class="numbutton" onclick="display('2')"><i class="fa-solid fa-2"></i></div>
+                                <div class="numbutton" onclick="display('3')"><i class="fa-solid fa-3"></i></div>
+                                <div class="button" onclick="display('*')"><i class="fa-solid fa-xmark"></i></div>
+
+                                <!-- 4th row -->
+                                <div class="numbutton" onclick="display('4')"><i class="fa-solid fa-4"></i></div>
+                                <div class="numbutton" onclick="display('5')"><i class="fa-solid fa-5"></i></div>
+                                <div class="numbutton" onclick="display('6')"><i class="fa-solid fa-6"></i></div>
+                                <div class="button" onclick="display('-')"><i class="fa-solid fa-minus"></i></div>
+
+                                <!-- 5th row -->
+                                <div class="numbutton" onclick="display('7')"><i class="fa-solid fa-7"></i></div>
+                                <div class="numbutton" onclick="display('8')"><i class="fa-solid fa-8"></i></div>
+                                <div class="numbutton" onclick="display('9')"><i class="fa-solid fa-9"></i></div>
+                                <div class="button" onclick="display('+')"><i class="fa-solid fa-plus"></i></div>
+
+                                <div class="button"><i class="fa-solid fa-exclamation"></i></div>
+                                <div class="numbutton" onclick="display('0')"><i class="fa-solid fa-0"></i></div>
+                                <div class="button" onclick="display('.')"><i class="fa-solid fa-circle"></i></div>
+                                <div class="button" onclick="calculate()"><i class="fa-solid fa-equals" style="color:#00f2ff;"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- script -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>

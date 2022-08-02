@@ -1,0 +1,82 @@
+.main {
+    height: 100vh;
+    background: linear-gradient(0deg, rgb(112, 0, 203), rgb(112, 0, 203), rgb(0, 0, 183));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.sideBar {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.sideBar-list h4 {
+    color: white;
+}
+
+.sideBar-list h5 {
+    width: 100%;
+    color: rgb(221, 221, 221);
+    margin: 10px 0;
+    cursor: pointer;
+    padding: 5px 5px;
+}
+
+.sideBar-list h5:hover {
+    background-color: rgba(182, 182, 182, 0.3);
+}
+
+#calculator {
+    height: 100%;
+    display: grid;
+    grid-template-rows: 10% 90%;
+    padding-top: 5px;
+}
+
+#calcMainSection {
+    background-color: rgba(215, 215, 215, 0.1);
+    color: white;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1.5fr repeat(6, 1fr);
+    grid-gap: 2px;
+}
+
+#displayScreen {
+    margin: 2px 2px;
+    padding: 0 5px;
+    border-radius: 5px;
+    grid-column: 1/5;
+    font-size: 50px;
+    display: grid;
+    justify-content: end;
+    align-items: center;
+}
+
+#calcMainSection .button {
+    font-size: 25px;
+    background-color: rgba(255, 255, 255, 0.2);
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+#calcMainSection .numbutton {
+    font-size: 25px;
+    background-color: rgba(255, 255, 255, 0.3);
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+#calcMainSection .button:hover,
+#calcMainSection .numbutton:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
