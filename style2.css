@@ -1,0 +1,223 @@
+/* navbar */
+
+*{
+    font-family: 'Secular One', sans-serif;
+}
+
+.navbar{
+    background-color: white;
+    box-shadow: 0px 2px 10px grey;
+    /* height: 10vh; */
+}
+
+.navbar-brand {
+    font-size: 30px;
+}
+
+.nav-link {
+    transition: none;
+    font-size: 17px;
+}
+
+.navbar-nav .nav-link.active, .navbar-nav .show>.nav-link {
+    color: #007aa5;
+}
+
+.justify-content-evenly {
+    justify-content: space-evenly !important;
+    height: 100vh;
+}
+
+.nav-link {
+    color: rgba(0, 0, 0, 0.548);
+}
+
+/* <!-- home content --> */
+
+
+.animation h2{
+    font-size: 2.1rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+@keyframes animateIntro {
+    0% {
+        content: 'S';
+    }
+
+    4% {
+        content: 'So';
+    }
+
+    8% {
+        content: 'Sof';
+    }
+
+    12% {
+        content: 'Soft';
+    }
+
+    16% {
+        content: 'Softw';
+    }
+
+    20% {
+        content: 'Softwa';
+    }
+
+    24% {
+        content: 'Softwar';
+    }
+
+    28% {
+        content: 'Software';
+    }
+
+    32% {
+        content: 'Software ';
+    }
+
+    36% {
+        content: 'Software E';
+    }
+
+    40% {
+        content: 'Software En';
+    }
+
+    42% {
+        content: 'Software Eng';
+    }
+
+    44% {
+        content: 'Software Engi';
+    }
+
+    46% {
+        content: 'Software Engine';
+    }
+
+    48% {
+        content: 'Software Enginee';
+    }
+
+    50% {
+        content: 'Software Engineer';
+    }
+
+    100% {
+        content: 'Software Engineer';
+    }
+}
+
+#pre2::before{
+    content: '';
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: white;
+    -webkit-text-stroke: 2px #50210b;
+    animation-name: animateIntro;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+#home h1{
+    font-size: 3rem;
+}
+
+#home .button a{
+    background-color: #0c007a;
+    color: white;
+    border-radius: 20px;
+    box-shadow: 0px 0px 7px #000d7e;
+    padding: 15px 20px;
+}
+
+@media screen and (min-width:1019px) and (max-width:1230px) {
+    #home h1{
+        font-size: 2.2rem;
+    }
+    #pre2::before {
+        font-size: 2.3rem;
+    }
+}
+
+@media screen and (min-width:768px) and (max-width:1019px) {
+    #home h1{
+        font-size: 1.8rem;
+    }
+    #pre2::before{
+        font-size: 1.7rem;
+    }
+}
+
+@media screen and (max-width:767px) {
+    #home h1{
+        font-size: 2rem;
+    }
+    #pre2::before {
+        font-size: 2rem;
+    }
+}
+
+@media screen and (max-width:400px) {
+    #home h1{
+        font-size: 1.8rem;
+    }
+    #pre2::before {
+        font-size: 1.8rem;
+    }
+}
+
+
+/* social */
+.social{
+    font-size: 30px;
+    margin-right: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
+
+
+/* education */
+#education{
+    background: url(images/education.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.location{
+    cursor: pointer;
+}
+
+.location:hover{
+    font-size: 20px;
+}
+
+.progress {
+    --bs-progress-height: 2px;
+    height: var(--bs-progress-height);
+}
+
+/* work */
+
+#work {
+    background: url(images/work.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#projectDescription{
+    padding: 5px 10px;
+    overflow-y: scroll;
+    height: 80vh;
+    border: 1px solid grey;
+    border-right: 0;
+    background-color: white;
+}
+
+/* about */
+#about {
+    height: 100vh;
+}

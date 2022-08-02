@@ -1,82 +1,732 @@
-.main {
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: 100vw;
     height: 100vh;
-    background: linear-gradient(0deg, rgb(112, 0, 203), rgb(112, 0, 203), rgb(0, 0, 183));
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
 }
 
-.sideBar {
-    height: 90vh;
+
+
+:root {
+    --color1: #212E52;
+    --colorYear: #900C3F;
+    --colorDetails: #CB6015;
+    --colorLink: #AC4FC6;
+    --paraSize: 15px;
+    --colorHeader:grey;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* floating button design */
+#floatingButton {
+    position: fixed;
+    top: 30px;
+    right: 20px;
+    z-index: 3;
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    box-shadow: 0px 0px 5px grey;
+    border-radius: 50%;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    color: black;
+    cursor: pointer;
+    animation-name: rotation;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+#floatingButton:hover{
+    width: 35px;
+    height: 35px;
+}
+
+
+/* whole page background */
+#container {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 25% 75%;
+    background-image: linear-gradient(40deg, rgb(226, 226, 226), white);
+}
+
+
+/* side menu */
+#menu {
+    width: 100%;
+    height: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-evenly;
+    align-items: center;
 }
 
-.sideBar-list h4 {
-    color: white;
+#menu ul {
+    width: 60%;
 }
 
-.sideBar-list h5 {
-    width: 100%;
-    color: rgb(221, 221, 221);
-    margin: 10px 0;
-    cursor: pointer;
+#menu li {
+    list-style: none;
+    width: min-content;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+.fa-house,
+.fa-school-flag,
+.fa-briefcase,
+.fa-diagram-project,
+.fa-book-open {
+    background-color: white;
+    color: black;
+    width: 30px;
+    height: 30px;
     padding: 5px 5px;
+    border-radius: 10px;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0px 2px 5px grey;
 }
 
-.sideBar-list h5:hover {
-    background-color: rgba(182, 182, 182, 0.3);
+.fa-house:hover,
+.fa-school-flag:hover,
+.fa-briefcase:hover,
+.fa-diagram-project:hover,
+.fa-book-open:hover {
+    width: 35px;
+    height: 35px;
 }
 
-#calculator {
+
+/* my intro */
+#intro {
     height: 100%;
     display: grid;
-    grid-template-rows: 10% 90%;
-    padding-top: 5px;
+    grid-template-rows: 80% 20%;
 }
 
-#calcMainSection {
-    background-color: rgba(215, 215, 215, 0.1);
+#profile {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 60% 40%;
+}
+
+#intro h1 {
+    margin-bottom: 20px;
+    font-size: 3rem;
+    color: #00a8ad;
+}
+
+#description h2 {
+    font-size: 2rem;
+    -webkit-text-stroke: 1px rgb(251, 255, 0);
+}
+
+#intro p {
+    margin-top: 20px;
+    font-size: 1.4rem;
     color: white;
-    height: 100%;
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 1.5fr repeat(6, 1fr);
-    grid-gap: 2px;
 }
 
-#displayScreen {
-    margin: 2px 2px;
-    padding: 0 5px;
+#intro pre{
+    font-size: 2.1rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+#intro #pre1{
+    color: #0B504F;
+}
+
+@keyframes animateIntro {
+    0% {
+        content: 'S';
+    }
+
+    4% {
+        content: 'So';
+    }
+
+    8% {
+        content: 'Sof';
+    }
+
+    12% {
+        content: 'Soft';
+    }
+
+    16% {
+        content: 'Softw';
+    }
+
+    20% {
+        content: 'Softwa';
+    }
+
+    24% {
+        content: 'Softwar';
+    }
+
+    28% {
+        content: 'Software';
+    }
+
+    32% {
+        content: 'Software ';
+    }
+
+    36% {
+        content: 'Software E';
+    }
+
+    40% {
+        content: 'Software En';
+    }
+
+    42% {
+        content: 'Software Eng';
+    }
+
+    44% {
+        content: 'Software Engi';
+    }
+
+    46% {
+        content: 'Software Engine';
+    }
+
+    48% {
+        content: 'Software Enginee';
+    }
+
+    50% {
+        content: 'Software Engineer';
+    }
+
+    100% {
+        content: 'Software Engineer';
+    }
+}
+
+#intro #pre2::before{
+    content: '';
+    font-weight: bold;
+    color: white;
+    -webkit-text-stroke: 2px #0B504F;
+    animation-name: animateIntro;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+#description {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 30px;
+}
+
+#introImage {
+    position: relative;
+    top: 30%;
+    width: 80%;
+    height: 50%;
+    background: url(fb.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10%;
+    box-shadow: 0px 3px 5px grey;
+}
+
+#personalDetails {
+    text-align: center;
+    color: black;
+}
+
+#socialContact {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+#socialContact a {
+    font-size: 1.2rem;
+    color: black;
+}
+
+#socialContact a:hover {
+    font-size: 1.5rem;
+}
+
+
+/* EDUCATION DETAILS */
+#education {
+    position: absolute;
+    top: 2%;
+    left: 25%;
+    width: 75%;
+    height: 90%;
+    display: none;
+    grid-template-rows: 20% 75%;
+}
+
+@keyframes animateEdu {
+    0% {
+        content: 'E';
+    }
+
+    2% {
+        content: 'Ed';
+    }
+
+    4% {
+        content: 'Edu';
+    }
+
+    6% {
+        content: 'Educ';
+    }
+
+    8% {
+        content: 'Educ';
+    }
+
+    10% {
+        content: 'Educa';
+    }
+
+    12% {
+        content: 'Educat';
+    }
+
+    14% {
+        content: 'Educati';
+    }
+
+    16% {
+        content: 'Educatio';
+    }
+
+    18% {
+        content: 'Education';
+    }
+
+    20% {
+        content: 'Education ';
+    }
+
+    23% {
+        content: 'Education D';
+    }
+
+    27% {
+        content: 'Education De';
+    }
+
+    30% {
+        content: 'Education Det';
+    }
+
+    35% {
+        content: 'Education Deta';
+    }
+
+    39% {
+        content: 'Education Detai';
+    }
+
+    43% {
+        content: 'Education Detai';
+    }
+
+    46% {
+        content: 'Education Detail';
+    }
+
+    50% {
+        content: 'Education Details';
+    }
+
+    100% {
+        content: 'Education Details';
+    }
+}
+
+#education h1::before {
+    content: '';
+    -webkit-text-stroke: 1.5px #0B504F;
+    color: white;
+    animation-name: animateEdu;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+#eduContent {
+    width: fit-content;
+    padding: 5px 5px;
+    display: grid;
+    grid-template-columns: 25% 70%;
+    box-shadow: 0px 5px 10px rgb(97, 97, 97);
     border-radius: 5px;
-    grid-column: 1/5;
-    font-size: 50px;
-    display: grid;
-    justify-content: end;
-    align-items: center;
 }
 
-#calcMainSection .button {
-    font-size: 25px;
-    background-color: rgba(255, 255, 255, 0.2);
+#educationYear {
     display: grid;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
+    grid-template-rows: repeat(3, 1fr);
+    color: var(--colorYear);
+    font-weight: bold;
 }
 
-#calcMainSection .numbutton {
-    font-size: 25px;
-    background-color: rgba(255, 255, 255, 0.3);
+#education #details {
     display: grid;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
+    grid-template-rows: repeat(3, 1fr);
 }
 
-#calcMainSection .button:hover,
-#calcMainSection .numbutton:hover {
-    background-color: rgba(255, 255, 255, 0.5);
+#details h2 {
+    color: var(--color1);
+}
+
+#details ul {
+    color: var(--colorDetails);
+    list-style: none;
+    margin-top: 10px;
+}
+
+#details ul,
+li {
+    margin-top: 5px;
+    font-size: var(--paraSize);
+}
+
+
+/* WORK DETAILS */
+#work {
+    position: absolute;
+    top: 2%;
+    left: 25%;
+    width: 75%;
+    height: 90%;
+    display: none;
+    grid-template-rows: 20% 75%;
+}
+
+#work h1 {
+    color: var(--colorHeader);
+}
+
+@keyframes animateInter {
+    0% {
+        content: 'I';
+    }
+
+    7% {
+        content: 'In';
+    }
+
+    14% {
+        content: 'Int';
+    }
+
+    21% {
+        content: 'Inte';
+    }
+
+    28% {
+        content: 'Inter';
+    }
+
+    42% {
+        content: 'Inters';
+    }
+
+    49% {
+        content: 'Intersh';
+    }
+
+    56% {
+        content: 'Intershi';
+    }
+
+    63% {
+        content: 'Intership';
+    }
+
+    70% {
+        content: 'Interships';
+    }
+
+    100% {
+        content: 'Interships';
+    }
+}
+
+#work h1::before {
+    content: '';
+    -webkit-text-stroke: 1.5px #0B504F;
+    color: white;
+    animation-name: animateInter;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+#internshipContent {
+    width: fit-content;
+    padding: 5px 5px;
+    display: grid;
+    grid-template-columns: 25% 70%;
+    box-shadow: 0px 5px 10px rgb(97, 97, 97);
+    border-radius: 5px;
+}
+
+#work #workYear {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    color: var(--colorYear);
+    font-weight: bold;
+}
+
+#work #internDetails {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+}
+
+#internDetails h2 {
+    color: var(--color1);
+}
+
+#internDetails ul {
+    color: var(--colorDetails);
+    list-style: none;
+    margin-top: 10px;
+}
+
+#internDetails ul,
+li {
+    margin-top: 5px;
+    text-align: justify;
+    width: 90%;
+    font-size: var(--paraSize);
+}
+
+
+/* PROJECT DETAILS */
+#project {
+    position: absolute;
+    top: 2%;
+    left: 25%;
+    width: 75%;
+    height: 90%;
+    display: none;
+    grid-template-rows: 20% 75%;
+}
+
+@keyframes animateProject {
+    0% {
+        content: 'P';
+    }
+
+    7% {
+        content: 'Pr';
+    }
+
+    14% {
+        content: 'Pro';
+    }
+
+    21% {
+        content: 'Proj';
+    }
+
+    28% {
+        content: 'Proje';
+    }
+
+    42% {
+        content: 'Projec';
+    }
+
+    49% {
+        content: 'Project';
+    }
+
+    56% {
+        content: 'Projects';
+    }
+
+    100% {
+        content: 'Projects';
+    }
+}
+
+#project h1::before {
+    content: '';
+    -webkit-text-stroke: 1.5px #0B504F;
+    color: white;
+    animation-name: animateProject;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+#projectContent {
+    padding: 5px 5px;
+    display: grid;
+    grid-template-columns: 25% 70%;
+    box-shadow: 0px 5px 10px rgb(97, 97, 97);
+    border-radius: 5px;
+}
+
+#project #projectYear {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    color: var(--colorYear);
+    font-weight: bold;
+}
+
+#project #projectDetails {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+}
+
+#projectDetails h2 {
+    color: var(--color1);
+}
+
+#projectDetails a {
+    text-decoration: none;
+    color: var(--colorLink);
+}
+
+#projectDetails ul {
+    color: var(--colorDetails);
+    list-style: none;
+    margin-top: 10px;
+}
+
+#projectDetails ul,
+li {
+    margin-top: 5px;
+    text-align: justify;
+    width: 90%;
+    font-size: var(--paraSize);
+}
+
+/* PUBLICATION DETAILS */
+#publication {
+    position: absolute;
+    top: 2%;
+    left: 25%;
+    width: 75%;
+    height: 90%;
+    display: none;
+    grid-template-rows: 20% 75%;
+}
+
+@keyframes animatePub {
+    0% {
+        content: 'M';
+    }
+
+    3% {
+        content: 'My';
+    }
+
+    6% {
+        content: 'My ';
+    }
+
+    9% {
+        content: 'My P';
+    }
+
+    12% {
+        content: 'My Pu';
+    }
+
+    15% {
+        content: 'My Pub';
+    }
+
+    18% {
+        content: 'My Publ';
+    }
+
+    21% {
+        content: 'My Publi';
+    }
+
+    24% {
+        content: 'My Public';
+    }
+
+    27% {
+        content: 'My Publica';
+    }
+
+    30% {
+        content: 'My Publicat';
+    }
+    
+    39% {
+        content: 'My Publicati';
+    }
+
+    45% {
+        content: 'My Publicatio';
+    }
+
+    50% {
+        content: 'My Publication';
+    }
+
+    100% {
+        content: 'My Publication';
+    }
+}
+
+#publication h1::before {
+    content: '';
+    -webkit-text-stroke: 1.5px #0B504F;
+    color: white;
+    animation-name: animatePub;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+#pubList {
+    height: fit-content;
+    padding: 10px 10px;
+    width: 90%;
+    box-shadow: 0px 5px 10px rgb(97, 97, 97);
+    border-radius: 5px;
+}
+
+#pubList .heading{
+    color: var(--color1);
+}
+
+#pubList .para{
+    color: var(--colorDetails);
+}
+
+#pubList ol {
+    overflow-y: auto;
+    color: white;
+}
+
+#pubList a {
+    color: #f9bf3b;
+    text-decoration: none;
 }
