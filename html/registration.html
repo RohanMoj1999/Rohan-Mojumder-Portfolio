@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../css/log_reg.css" type="text/css" />
+	<title>Document</title>
+</head>
+
+<body>
+	<section>
+		<div class="box">
+			<div class="square" style="--i:0;"></div>
+			<div class="square" style="--i:1;"></div>
+			<div class="square" style="--i:2;"></div>
+			<div class="square" style="--i:3;"></div>
+			<div class="container">
+				<div class="form">
+					<h2>REGISTRATION FORM</h2>
+					<form action="../php/creat_acc.php" method="post">
+						<div class="log">
+							<div class="log1">
+								<div class="inputBox">
+									<input type="text" placeholder="Student Name" name="user" required>
+								</div>
+								<div class="inputBox">
+									<input type="text" placeholder="Student/Institution Name" name="user" required>
+								</div>
+								<div class="inputBox">
+									<input type="text" placeholder="Phone Number" name="user" required>
+								</div>
+							</div>
+							<div class="log2">
+								<div class="inputBox">
+									<input type="text" placeholder="username" name="user" required>
+								</div>
+								<div class="inputBox">
+									<input type="text" placeholder="Mail" name="email" required>
+								</div>
+								<div class="inputBox">
+									<input type="password" placeholder="password" name="password" required>
+								</div>
+							</div>
+						</div>
+						<div class="inputBox">
+							<input type="submit" value="register">
+						</div>
+						<p class="register">Already has account ? <a href="Login.html">Login</a></p>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>

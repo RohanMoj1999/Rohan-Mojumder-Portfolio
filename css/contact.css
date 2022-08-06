@@ -1,0 +1,96 @@
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:700,400,300);
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial;
+}
+body{
+    overflow: hidden;
+    background: url('../background/b7.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+label.logo{
+  font-family: 'Tourney', cursive;
+  color: #fff;
+  font-size: 50px;
+  font-weight: bold;
+  padding: 0 100px;
+  line-height: 80px;
+  position: relative;
+  text-shadow: 0 0 50px #0f0,
+               0 0 100px #0f0,
+               0 0 150px #0f0,
+               0 0 200px #0f0,
+               0 0 250px #0f0;
+  animation: animate 2s linear infinite;
+}
+@keyframes animate {
+  0%
+  {
+    filter: hue-rotate(0deg);
+  }
+  100%{
+    filter: hue-rotate(360deg);
+  }
+}
+
+
+/*menu style changing*/
+nav ul{
+  /* background: rgba(0, 0, 0, 0.5); */
+  border-radius: 15px;
+  float: right;
+  margin-right: 120px;
+}
+nav ul li{/*column to row*/
+  display: inline-block;
+  padding: 0 15px;
+  line-height: 80px;
+  margin: 0 5px;
+}
+nav ul li a{/* decoration*/
+  color: white;
+  font-size: 17px;
+  padding: 0 5px;
+  border-radius: 5px;
+  text-transform: uppercase;
+}
+nav a.active,nav a:hover{
+  background: #1b9bff;
+}
+
+
+nav ul ul{/*initiating first dropdown menu of courses*/
+  position: absolute;
+  display: none;
+}
+
+nav ul li:hover > ul{/*generating first dropdown menu*/
+  display: block;
+  background: rgba(0, 0, 0, 0.1);
+}
+nav ul ul li{/*activating all options of first drop down menu*/
+  width: 150px;
+  float: none;
+  display: list-item;
+  position: relative;
+}
+nav ul ul ul li{/*2nd dropdown menu activates*/
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  position: relative;
+  top: -60px;
+  left: 100px;
+}
+
+.contact{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.map{
+   margin-top: 5px;
+}
